@@ -5,12 +5,24 @@ interface Todo {
   todo: string;
 }
 
-interface Type {
+type Callback = (callback: (prevLists: Todo[]) => Todo[]) => void;
+
+interface Props {
   todoLists: Todo[];
-  handleDelete: (id: string) => void;
+  onClickDelBtn: Callback;
 }
 
-const TodoList = ({ todoLists, handleDelete }: Type) => {
+const TodoList = ({ todoLists, onClickDelBtn }: Props) => {
+  
+
+  function handleDelete(id: string) {
+    onClickDelBtn((prevLists: Todo[]) => {
+      const updateTodoLists = prevLists.filter(todo => todo.id !== id)
+      return updateTodoLists;
+    })
+  }
+
+  
   return (
     <ul className="todo-list">
       {todoLists.map(todoItem =>

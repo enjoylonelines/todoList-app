@@ -1,15 +1,28 @@
+import { useState } from "react";
+
 interface Todo {
   id: string;
   todo: string;
 }
 
-interface Handler {
-  inputValue: string;
-  setInputValue: (value: string) => void;
-  handleAddInput: () => void;
+type Callback = (callback: (prevLists: Todo[]) => Todo[]) => void;
+
+interface Props {
+  onClickAddBtn: Callback;
 }
 
-const UserInput = ({ inputValue, setInputValue, handleAddInput }: Handler) => {
+const UserInput = ({ onClickAddBtn }: Props) => {
+  const [inputValue, setInputValue] = useState<string>('');
+
+  function handleAddInput() {
+    onClickAddBtn(prevLists => {
+      const newTodoItem = { id: crypto.randomUUID(), todo: inputValue };
+      const updateLists = [...prevLists, newTodoItem];
+      setInputValue('');
+      return updateLists;
+    })
+  }
+
   return (
     <div className="user-input">
       <input
