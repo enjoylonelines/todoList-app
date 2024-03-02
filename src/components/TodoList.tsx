@@ -1,12 +1,5 @@
+import { Callback, Todo } from "../types/types";
 import TodoItem from "./TodoItem"
-
-interface Todo {
-  id: string,
-  todo: string;
-}
-
-type Callback = (callback: (prevLists: Todo[]) => Todo[]) => void;
-
 interface Props {
   todoLists: Todo[];
   onClickDelBtn: Callback;

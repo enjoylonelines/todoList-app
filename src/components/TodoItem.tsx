@@ -1,12 +1,12 @@
 type HandleDelete = (id: string) => void;
 
-interface Prop {
+interface Props {
   id: string;
   todo: string;
   handleDelete: HandleDelete;
 }
 
-const TodoItem = ({id, todo, handleDelete}:Prop) => {
+const TodoItem = ({id, todo, handleDelete}:Props) => {
   return (
       <li className='todo-item' >
         <p>{todo}</p>

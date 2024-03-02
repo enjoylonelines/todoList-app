@@ -1,21 +1,15 @@
 import { useState } from "react";
+import { Todo, Callback } from "../types/types";
 
-interface Todo {
-  id: string;
-  todo: string;
-}
-
-type Callback = (callback: (prevLists: Todo[]) => Todo[]) => void;
-
-interface Props {
+interface Prop {
   onClickAddBtn: Callback;
 }
 
-const UserInput = ({ onClickAddBtn }: Props) => {
+const UserInput = ({ onClickAddBtn }: Prop) => {
   const [inputValue, setInputValue] = useState<string>('');
 
   function handleAddInput() {
-    onClickAddBtn(prevLists => {
+    onClickAddBtn((prevLists: Todo[]) => {
       const newTodoItem = { id: crypto.randomUUID(), todo: inputValue };
       const updateLists = [...prevLists, newTodoItem];
       setInputValue('');
