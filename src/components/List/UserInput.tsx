@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { addTodo } from "../store/todoReducer";
+import { addTodo } from "../../store/todoReducer";
 
 const UserInput = () => {
   const [inputValue, setInputValue] = useState<string>('');

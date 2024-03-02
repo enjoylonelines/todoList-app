@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import TodoItem from "./TodoItem"
-import { removeTodo } from "../store/todoReducer";
-import { Todo } from '../types/types'
+import { removeTodo } from "../../store/todoReducer";
+import { Todo } from '../../types/types'
 
 const TodoList = () => {
   const todos = useSelector((state: any) => state.todos);

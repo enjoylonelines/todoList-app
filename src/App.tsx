@@ -1,6 +1,6 @@
 import './App.css'
-import UserInput from './components/UserInput';
-import TodoList from './components/TodoList';
+import UserInput from './components/List/UserInput';
+import TodoList from './components/List/TodoList';
 
 function App() {
  
