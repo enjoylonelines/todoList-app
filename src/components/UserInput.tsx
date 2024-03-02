@@ -1,20 +1,17 @@
 import { useState } from "react";
-import { Todo, Callback } from "../types/types";
+import { useDispatch } from "react-redux";
+import { addTodo } from "../store/todoReducer";
 
-interface Prop {
-  onClickAddBtn: Callback;
-}
-
-const UserInput = ({ onClickAddBtn }: Prop) => {
+const UserInput = () => {
   const [inputValue, setInputValue] = useState<string>('');
-
-  function handleAddInput() {
-    onClickAddBtn((prevLists: Todo[]) => {
-      const newTodoItem = { id: crypto.randomUUID(), todo: inputValue };
-      const updateLists = [...prevLists, newTodoItem];
-      setInputValue('');
-      return updateLists;
-    })
+  const dispatch = useDispatch();
+  
+  function handleAddTodo() {
+    dispatch(addTodo({
+      id: crypto.randomUUID(), 
+      todo: inputValue,
+    }));
+    setInputValue('');
   }
 
   return (
@@ -22,10 +19,9 @@ const UserInput = ({ onClickAddBtn }: Prop) => {
       <input
         type="text"
         onChange={(e: React.ChangeEvent<HTMLInputElement>) => setInputValue(e.target.value)}
-        //onKeyDown={(e) => handleEnterInput(e)}
         value={inputValue}
       />
-      <button onClick={handleAddInput}>Add</button>
+      <button onClick={handleAddTodo}>Add</button>
     </div>
   )
 }
