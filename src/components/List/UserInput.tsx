@@ -20,6 +20,7 @@ const UserInput = () => {
         type="text"
         onChange={(e: React.ChangeEvent<HTMLInputElement>) => setInputValue(e.target.value)}
         value={inputValue}
+        placeholder="Please enter your to-do list."
       />
       <button onClick={handleAddTodo}>Add</button>
     </div>
