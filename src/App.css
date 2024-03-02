@@ -1,0 +1,40 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+  box-sizing: border-box;
+}
+ul, li {
+  margin: 0;
+  padding: 0;
+}
+
+.user-input {
+  display: flex;
+  align-items: center;
+}
+.user-input input {
+  width: 15rem;
+  font-size: 1.75rem;
+  margin-right: 1rem;
+}
+.user-input button {
+  background-color: darkseagreen;
+}
+
+.todo-item {
+  display: flex;
+  width: 20rem;
+  height: 3rem;
+  align-items: center;
+  justify-content: space-between;
+  margin: 1rem;
+}
+.todo-item p {
+  font-size: 1.25rem;
+}
+
+.todo-item button {
+  background-color: crimson;
+}
