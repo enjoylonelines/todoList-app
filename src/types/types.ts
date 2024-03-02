@@ -3,5 +3,4 @@ export interface Todo {
   todo: string;
 }
 
-export type Callback = (callback: (prevLists: Todo[]) => Todo[]) => void;
 
